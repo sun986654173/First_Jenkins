@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'your-credentials-id', url: 'https://github.com/yourusername/selenium-baidu-search.git'
+                git credentialsId: 'your-credentials-id', url: 'https://github.com/sun986654173/First_Jenkins.git'
             }
         }
 
@@ -39,8 +39,10 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '**/path/to/artifacts', allowEmptyArchive: true
-            junit 'path/to/test-results.xml'
+            script {
+                archiveArtifacts artifacts: '**/path/to/artifacts', allowEmptyArchive: true
+                junit 'path/to/test-results.xml'
+            }
         }
     }
 }
